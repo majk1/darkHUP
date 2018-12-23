@@ -54,9 +54,12 @@
     _hupAddStyle("#block-aggregator-feed-50 div.content { background-color: #404040; }"); // jobs
 
     _hupAddStyle(".node { background-color: #303030; }");
-    _hupAddStyle(".node.sticky { background-color: #505050; color: #E0E0E0; }");
     _hupAddStyle(".node .title { background-color: #505050; border: 1px solid #707070; }");
+    _hupAddStyle(".node.sticky { background-color: #505050; color: #E0E0E0; }");
     _hupAddStyle(".node.sticky .title { background-color: #707070; border: 1px solid #909090; color: #E0E0E0; }");
+
+    _hupAddStyle(".preview .node { background-color: #303030; }");
+    _hupAddStyle(".preview .node .title { background-color: #505050; border: 1px solid #707070; }");
 
     _hupAddStyle("#footer { background-color: #505050; color: #B0B0B0; border: 1px solid #606060; }");
     _hupAddStyle("#footer a { color: #C0C0C0; }");

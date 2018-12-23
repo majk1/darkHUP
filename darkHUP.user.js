@@ -78,6 +78,12 @@
     _hupAddStyle(".poll .bar             { background-color: #404040 }");
     _hupAddStyle(".poll .bar .foreground { background-color: #707070 }");
 
+    _hupAddStyle("ul.primary li a        { background-color: #404040; color: #606060; border: 1px solid #707070; border-bottom-color: #bbb }");
+    _hupAddStyle("ul.primary li a:hover  { background-color: #474747; color: #A0A0A0; border-bottom-color: #bbb }");
+    _hupAddStyle("ul.primary li.active a { background-color: #505050; color: #C0C0C0; border: 1px solid #808080; border-bottom-color: #bbb }");
+
+    _hupAddStyle(".resizable-textarea .grippie { background-color: #909090; }");
+
     // twitter dark theme
     const meta = document.createElement('meta');
     meta.name = "twitter:widgets:theme";
@@ -101,6 +107,13 @@
                 inp.style.color = '#E0E0E0';
                 inp.style.border = '1px solid #A0A0A0';
             }
+        });
+
+        [...document.getElementsByTagName('textarea')].forEach(sel => {
+            sel.style.backgroundColor = '#606060';
+            sel.style.color = '#E0E0E0';
+            sel.style.border = '1px solid #808080';
+            sel.style.fontSize = '1.10em';
         });
 
         [...document.getElementsByTagName('select')].forEach(sel => {

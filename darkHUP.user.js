@@ -6,7 +6,7 @@
 // @author       Majki <majki@majki.hu>
 // @match        https://hup.hu/*
 // @grant        _hupAddStyle
-// @run-at.      document-body
+// @run-at       document-body
 // ==/UserScript==
 
 (function() {

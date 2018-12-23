@@ -37,8 +37,8 @@
 
     _hupAddStyle(".main-content th { border-bottom: 2px solid #676767; padding-bottom: 4px }");
     _hupAddStyle(".main-content tbody tr:first-child td { padding-top: 4px }");
-    _hupAddStyle(".main-content .odd  { background-color: #404040; color: #C0C0C0; border-bottom: 1px solid #606060; }");
-    _hupAddStyle(".main-content .even { background-color: #505050; color: #C0C0C0; border-bottom: 1px solid #606060; }");
+    _hupAddStyle(".main-content .odd  { background-color: #303030; color: #C0C0C0; border-bottom: 1px solid #606060; }");
+    _hupAddStyle(".main-content .even { background-color: #383838; color: #C0C0C0; border-bottom: 1px solid #606060; }");
     _hupAddStyle(".main-content a { color: #C0C0C0 }");
     _hupAddStyle(".main-content a:hover { color: #D0D0D0 }");
 

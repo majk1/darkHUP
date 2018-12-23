@@ -1,4 +1,4 @@
-# darkHUP
+# darkHUP ![license-mit](https://img.shields.io/github/license/majk1/darkHUP.svg)
 
 A **darkHUP** egy `user.js` script mely a https://hup.hu weboldal kinézetét változtatja
 sötét témájúva, továbbá jobb kiemelést biztosít az új hozzászólások megjelenítéséhez.

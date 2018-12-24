@@ -43,6 +43,7 @@
     _hupAddStyle(".main-content a:hover { color: #D0D0D0 }");
 
     _hupAddStyle(".main-content .content-title { background-color: #606060; color: #E0E0E0; border: 1px solid #707070; padding: 8px; color: #F0F0F0; }");
+    _hupAddStyle(".main-content .box { background-color: #303030; border: 1px solid #606060; }");
 
     _hupAddStyle(".sidebar .block { border: 1px solid #404040; }");
     _hupAddStyle(".sidebar .block .content { background-color: #303030; color: #808080; }");

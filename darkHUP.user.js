@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         darkHUP
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Dark theme for hup.hu
 // @author       Majki <majki@majki.hu>
 // @match        https://hup.hu/*

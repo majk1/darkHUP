@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         darkHUP
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Dark theme for hup.hu
 // @author       Majki <majki@majki.hu>
 // @match        https://hup.hu/*
@@ -10,18 +10,32 @@
 // ==/UserScript==
 
 (function() {
-    'use strict';
+    "use strict";
 
     function _hupAddStyle(css) {
         const style = document.getElementById("darkHUP_style") || (function() {
-            const style = document.createElement('style');
-            style.type = 'text/css';
+            const style = document.createElement("style");
+            style.type = "text/css";
             style.id = "GM_addStyleBy8626";
             document.head.appendChild(style);
             return style;
         })();
         const sheet = style.sheet;
         sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
+    }
+
+    function _forAllInDoc(tagName, fun) {
+        [...document.getElementsByTagName(tagName)].forEach(elem => {
+            fun(elem);
+        });
+    }
+
+    function _changeAttributeIf(tagName, attrName, attrValue, newValue) {
+        _forAllInDoc(tagName, (e) => {
+            if (e.hasAttribute(attrName) && e.getAttribute(attrName) === attrValue) {
+                e.setAttribute(attrName, newValue);
+            }
+        });
     }
 
     // created dark theme
@@ -89,56 +103,50 @@
     _hupAddStyle(".resizable-textarea .grippie { background-color: #909090; }");
 
     // twitter dark theme
-    const meta = document.createElement('meta');
+    const meta = document.createElement("meta");
     meta.name = "twitter:widgets:theme";
     meta.content = "dark";
-    document.getElementsByTagName('head')[0].appendChild(meta);
+    document.getElementsByTagName("head")[0].appendChild(meta);
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function() {
 
-        // fix input text and buttons
-        [...document.getElementsByTagName('input')].forEach(inp => {
-            if (inp.type === 'text' || inp.type === 'password') {
-                inp.style.backgroundColor = '#505050';
-                inp.style.color = '#E0E0E0';
-                inp.style.border = '1px solid #A0A0A0';
-            } else if (inp.type === 'button' || inp.type === 'submit') {
-                inp.style.backgroundColor = '#606060';
-                inp.style.color = '#E0E0E0';
-                inp.style.border = '1px solid #A0A0A0';
-            } else if (inp.type === 'radio') {
-                inp.style.backgroundColor = '#606060';
-                inp.style.color = '#E0E0E0';
-                inp.style.border = '1px solid #A0A0A0';
+        _forAllInDoc("input", inp => {
+            if (inp.type === "text" || inp.type === "password") {
+                inp.style.backgroundColor = "#505050";
+                inp.style.color = "#E0E0E0";
+                inp.style.border = "1px solid #A0A0A0";
+            } else if (inp.type === "button" || inp.type === "submit") {
+                inp.style.backgroundColor = "#606060";
+                inp.style.color = "#E0E0E0";
+                inp.style.border = "1px solid #A0A0A0";
+            } else if (inp.type === "radio") {
+                inp.style.backgroundColor = "#606060";
+                inp.style.color = "#E0E0E0";
+                inp.style.border = "1px solid #A0A0A0";
             }
         });
 
-        [...document.getElementsByTagName('textarea')].forEach(sel => {
-            sel.style.backgroundColor = '#606060';
-            sel.style.color = '#E0E0E0';
-            sel.style.border = '1px solid #808080';
-            sel.style.fontSize = '1.10em';
+        _forAllInDoc("textarea", ta => {
+            ta.style.backgroundColor = "#606060";
+            ta.style.color = "#E0E0E0";
+            ta.style.border = "1px solid #808080";
+            ta.style.fontSize = "1.10em";
         });
 
-        [...document.getElementsByTagName('select')].forEach(sel => {
-            sel.style.backgroundColor = '#202020';
-            sel.style.color = '#B0B0B0';
-            sel.style.border = '1px solid #606060';
+        _forAllInDoc("select", sel => {
+            sel.style.backgroundColor = "#202020";
+            sel.style.color = "#B0B0B0";
+            sel.style.border = "1px solid #606060";
         });
 
-        // fix burned in <tr bgcolor>
-        [...document.getElementsByTagName('tr')].forEach(tr => {
-            if (tr.hasAttribute('bgcolor') && tr.getAttribute('bgcolor') === '#dedede') {
-                tr.setAttribute('bgcolor', '#505050');
-            }
-        });
-
-        // fix burned in <font color="black">
-        [...document.getElementsByTagName('font')].forEach(font => {
-            if (font.hasAttribute('color') && font.getAttribute('color') === 'black') {
-                font.setAttribute('color', '#A0A0A0');
-            }
-        });
+        _changeAttributeIf("tr", "bgcolor", "#dedede", "#505050");
+        _changeAttributeIf("table", "bgcolor", "#d8d8c4", "#505050");
+        _changeAttributeIf("font", "color", "black", "#A0A0A0");
+        
+        
+        // these changes must go after page load due to hupper extension
+        _hupAddStyle(".main-content .odd:hover  { background-color: #505050; color: #D0D0D0; border-bottom: 1px solid #606060; }");
+        _hupAddStyle(".main-content .even:hover { background-color: #585858; color: #D0D0D0; border-bottom: 1px solid #606060; }");
 
     }, false);
 

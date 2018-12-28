@@ -1,0 +1,34 @@
+{
+  "name": "darkhup",
+  "version": "1.1.0",
+  "description": "Dark theme for hup.hu",
+  "main": "darkHUP.user.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majk1/darkHUP.git"
+  },
+  "keywords": [
+    "tampermonkey",
+    "dark-theme",
+    "dark",
+    "userscript",
+    "user-script"
+  ],
+  "author": "Majki <majki@majki.hu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/majk1/darkHUP/issues"
+  },
+  "homepage": "https://github.com/majk1/darkHUP#readme",
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
